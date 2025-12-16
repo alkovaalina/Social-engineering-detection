@@ -68,9 +68,6 @@ class App:
 
         self.build_page()
 
-    # -----------------------------
-    # Перевірка діапазону оцінок
-    # -----------------------------
     def validate_scores(self):
         for idx, var in enumerate(self.score_vars, start=1):
             val = var.get()
@@ -109,7 +106,6 @@ class App:
             self.build_page()
 
     def next_page(self):
-        # Перевірити оцінки перед переходом
         if not self.validate_scores():
             return
 
@@ -120,7 +116,6 @@ class App:
             self.calculate()
 
     def calculate(self):
-        # Перевірити оцінки перед обчисленням
         if not self.validate_scores():
             return
 
