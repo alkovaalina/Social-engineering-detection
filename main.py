@@ -15,14 +15,13 @@ scenarios = [
     "Spear-phishing",
     "Baiting",
     "Water-Holing",
-    "Pretexting",
-    "Reverse Social Engineering"
+    "Pretexting"
 ]
 
 class App:
     def __init__(self, root):
         self.root = root
-        self.root.title("SE Detection Risk Calculator")
+        self.root.title("SE Incident Detection Gap Analyzer")
         self.root.geometry("800x400")
 
         self.questions_per_page = 5
@@ -108,7 +107,6 @@ class App:
     def next_page(self):
         if not self.validate_scores():
             return
-
         if self.current_page < self.total_pages - 1:
             self.current_page += 1
             self.build_page()
@@ -125,7 +123,7 @@ class App:
         DP = np.clip(np.dot(norm_scores, W), 0, 1)
         Pnd = 1 - DP
 
-        result = "Результати оцінки ймовірності невиявлення атаки (Pnd)\n\n"
+        result = "Результати оцінки ризику пропуску атаки\n\n"
         result += "═" * 82 + "\n"
         result += f"{'Сценарій соціальної інженерії':<48} {'Pnd':>10} {'Рівень ризику':>20}\n"
         result += "═" * 82 + "\n"
